@@ -1,16 +1,18 @@
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import clientPromise from '../lib/mongodb'
+import Login from "./login"
 //import { db } from 'mongodb'
 
 export default function MongoTest({isConnected, movies}){
     return(
         <div className={styles.container}>
             <h1>This is the Mongo Test</h1>
+            <Login />
             {isConnected ? (<h3>You are connected to MongoDB</h3>):(<h3>You are not connected to MongoDB</h3>)}
             <ul>
                 {movies.map((movie)=>(
-                <li>
+                <li key={movie._id}>
                     <h2>{movie.title}</h2>
                     <h3>{movie.metacritic}</h3>
                     <p>{movie.plot}</p>
@@ -31,6 +33,7 @@ export async function getServerSideProps(){
         .sort({metacritic: -1})
         .limit(20)
         .toArray();
+        console.log(movies)
 
         return {
             props:{
