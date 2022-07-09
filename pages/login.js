@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
+import {Button, Form} from "react-bootstrap"
+
 
 export default function login(){
 
@@ -11,19 +13,17 @@ export default function login(){
     }
 
     return(
-        <form onClick={handleSubmit}>
-            <label>
-                Username:
-                <input type="text" ></input>
-            </label>
-            <label>
-                Password:
-                <input type="text"></input>
-            </label>
-            <label>
-                <input type="submit" value="Press this button"/>
-            </label>
-
-        </form>
+        <Form onClick={handleSubmit}>
+            <Form.Group className="justify-content-md-center">
+                <Form.Label>Username</Form.Label>
+                <Form.Control type="text" ></Form.Control>
+            </Form.Group>
+            <Form.Group className="justify-content-md-center">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="text"></Form.Control>
+            </Form.Group>
+            
+            <Button type="submit">Press this Button</Button>
+        </Form>
     )
 }

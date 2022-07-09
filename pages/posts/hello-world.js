@@ -6,7 +6,7 @@ import Script from 'next/script'
 import styles from '../../styles/Home.module.css'
 import { useEffect, useState } from 'react'
 
-export default function helloWorld(){
+export default function HelloWorld(){
     const [data, setData] = useState(null)
     const [isLoading, setLoading] = useState(false)
 

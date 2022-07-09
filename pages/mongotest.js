@@ -8,9 +8,8 @@ export default function MongoTest({isConnected, movies}){
     return(
         <div className={styles.container}>
             <h1>This is the Mongo Test</h1>
-            <Login />
             {isConnected ? (<h3>You are connected to MongoDB</h3>):(<h3>You are not connected to MongoDB</h3>)}
-            <ul>
+            { <ul>
                 {movies.map((movie)=>(
                 <li key={movie._id}>
                     <h2>{movie.title}</h2>
@@ -18,7 +17,7 @@ export default function MongoTest({isConnected, movies}){
                     <p>{movie.plot}</p>
                 </li>    
                 ))}
-            </ul>
+            </ul> }
         </div>
         )
 }
@@ -38,7 +37,7 @@ export async function getServerSideProps(){
         return {
             props:{
                 isConnected:true,
-                movies: JSON.parse(JSON.stringify(movies)),
+                movies:JSON.parse(JSON.stringify(movies))
             },
             
         }
