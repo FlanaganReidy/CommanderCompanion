@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import {Form,Button, FormControl }from "react-bootstrap"
+import MagicCard from "./magiccard";
+import samplecard from "../public/samplecard.json"
 
 
 export default function MagicSearch(){
@@ -38,11 +40,11 @@ export default function MagicSearch(){
                  )}
                 </datalist>
             </Form.Group> 
-            
+            <MagicCard data={samplecard} />
 
             <Button type="submit">Search</Button>
         </Form>
-           
+        
         </div>
     ) 
 }
