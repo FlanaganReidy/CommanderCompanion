@@ -15,48 +15,48 @@ export default function magiccard(props){
             <h2>{card.name}</h2>
             <div>
                 <Row>
-                    <Col s={12} md={6} lg={4}>
+                    <Col sm={12} md={6} lg={4}>
                     <img className = "cardImage" src={card.image_uris.normal}></img>
                     </Col>
 
                     <Col md={6} lg={4}>
-                    <Row>
-                        <Col>
+                    <Row >
+                        <Col className="border">
                             USD
                         </Col>
-                        <Col>
+                        <Col className="border">
                             USD Foil
                         </Col>
-                        <Col>
+                        <Col className="border">
                             USD Etched
                         </Col>
-                        <Col>
+                        <Col className="border">
                             EUR
                         </Col>
-                        <Col>
+                        <Col className="border">
                             EUR Foil
                         </Col>
-                        <Col>
+                        <Col className="border">
                             Tix
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col className="border">
                             {card.prices.usd}
                         </Col>
-                        <Col>
+                        <Col className="border">
                             {card.prices.usd_foil}
                         </Col>
-                        <Col>
+                        <Col className="border">
                             {card.prices.usd_etched}
                         </Col>
-                        <Col>
+                        <Col className="border">
                             {card.prices.eur}
                         </Col>
-                        <Col>
+                        <Col className="border">
                             {card.prices.eur_foil}
                         </Col>
-                        <Col>
+                        <Col className="border">
                             {card.prices.tix}
                         </Col>
                     </Row>
