@@ -10,8 +10,8 @@ export default function magiccard(props){
     console.log(props)
     return(
         <Container fluid>
-            {props.mycard.map((card) => (
-        <div>
+            {props.mycard.map((card, index) => (
+        <div key = {index}>
             <h2>{card.name}</h2>
             <div>
                 <Row>
@@ -20,7 +20,7 @@ export default function magiccard(props){
                     </Col>
 
                     <Col md={6} lg={4}>
-                    <Row >
+                    <Row className="text-center">
                         <Col className="border">
                             USD
                         </Col>
@@ -28,33 +28,15 @@ export default function magiccard(props){
                             USD Foil
                         </Col>
                         <Col className="border">
-                            USD Etched
-                        </Col>
-                        <Col className="border">
-                            EUR
-                        </Col>
-                        <Col className="border">
-                            EUR Foil
-                        </Col>
-                        <Col className="border">
                             Tix
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className="text-center">
                         <Col className="border">
                             {card.prices.usd}
                         </Col>
                         <Col className="border">
                             {card.prices.usd_foil}
-                        </Col>
-                        <Col className="border">
-                            {card.prices.usd_etched}
-                        </Col>
-                        <Col className="border">
-                            {card.prices.eur}
-                        </Col>
-                        <Col className="border">
-                            {card.prices.eur_foil}
                         </Col>
                         <Col className="border">
                             {card.prices.tix}
