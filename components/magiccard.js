@@ -10,8 +10,8 @@ export default function magiccard(props){
     console.log(props)
     return(
         <Container fluid>
-            {props.mycard.map((card, index) => (
-        <div key = {index}>
+            {Array.isArray(props)?props.data.map((card, index) => (
+            <div key = {index}>
             <h2>{card.name}</h2>
             <div>
                 <Row>
@@ -61,15 +61,10 @@ export default function magiccard(props){
                     </Col>
                 </Row>
             </div>
-        </div>))
+        </div>)) : null
         }
     </Container>
     )
     
     
 }
-export const getServerSideProps = () => ({
-    props:{
-    mycard : carddata.data,
-    }
-})

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import {Form,Button, FormControl }from "react-bootstrap"
-import MagicCard from "./magiccard";
+import MagicCard from "../components/magiccard";
 import samplecard from "../public/samplecard.json"
 
 
@@ -15,7 +15,6 @@ export default function MagicSearch(){
         const data = await response.json()
         console.log(data);
 
-        
     }
 
     const [cards, setCards] = useState(()=>({data:[]}))
@@ -27,24 +26,21 @@ export default function MagicSearch(){
         console.log(cards)
     }
     
-    
     return(
         <div>
-            <Form onSubmit={(e) => handleSubmit(e)}>
+        <Form onSubmit={(e) => handleSubmit(e)}>
             <Form.Group className="justify-content-md-center">
                 <Form.Label>Card name</Form.Label>
                 <Form.Control name="searchBar" list="searchOptions" type="text" onChange = {(e) => handleChange(e.target.value)}></Form.Control>
                 <datalist id="searchOptions">
                 {cards.data.map((card)=>
-                <option key={card} value={card}/>
-                 )}
+                <option key={card} value={card}/>)}
                 </datalist>
             </Form.Group> 
-            <MagicCard data={samplecard} />
+            <MagicCard data={cards.data} />
 
             <Button type="submit">Search</Button>
         </Form>
-        
         </div>
     ) 
 }
